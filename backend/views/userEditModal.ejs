@@ -1,0 +1,96 @@
+<div
+  class="modal fade"
+  id="userEditModal<%=key%>"
+  tabindex="-1"
+  aria-labelledby="userEditModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="userEditModalLabel">Update User</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form id="<%= key%>">
+          <div class="mb-3">
+            <label for="name"> Name </label>
+            <input
+              type="text"
+              class="form-control"
+              name="name"
+              id="name<%=key%>"
+              placeholder="Your Name required"
+              value="<%= list.name%>"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="name"> Email </label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="email<%=key%>"
+              placeholder="Your Email required"
+              value="<%= list.email%>"
+            />
+          </div>
+          <div class="mb-3 d-flex">
+            <label for="name"> Gender </label>
+            <div class="ms-5">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender"
+                id="male<%=key%>" value="Male" <%= list.gender === 'Male' &&
+                'checked' %> />
+                <label class="form-check-label" for="male"> Male </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender"
+                id="female" value="Female" <%= list.gender === 'Female' &&
+                'checked' %> />
+                <label class="form-check-label" for="female"> Female </label>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3 d-flex">
+            <label for="name"> Status </label>
+            <div class="ms-5">
+              <div class="form-check form-check-inline pl-4">
+                <input class="form-check-input" type="radio" name="status"
+                id="active<%=key%>" value="Active" <%= list.status === 'Active'
+                && 'checked' %> />
+                <label class="form-check-label" for="active"> Active </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="status"
+                id="inactive" value="Inactive" <%= list.status === 'Inactive' &&
+                'checked' %> />
+                <label class="form-check-label" for="inactive">
+                  Inactive
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          onclick="handleUpdate('<%=list._id%>','<%=key%>')"
+        >
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
